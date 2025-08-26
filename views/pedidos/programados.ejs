@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Programados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <% include partials/navbar %>
+
+  <div class="container mt-4">
+    <h2 class="text-primary mb-4">Programados</h2>
+
+    <% if (pedidos.length === 0) { %>
+      <div class="alert alert-info">No hay pedidos programados.</div>
+    <% } else { %>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover bg-white">
+          <thead class="table-secondary">
+            <tr>
+              <th>Fecha Programada</th>
+              <th>Cliente</th>
+              <th>Servicio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% pedidos.forEach(pedido => { %>
+              <tr>
+                <td><%= new Date(pedido.fecha_programada).toLocaleString() %></td>
+                <td><%= pedido.cliente_nombre %></td>
+                <td><%= pedido.servicio_nombre %></td>
+                <td>
+                  <a href="/pedidos/<%= pedido.id_pedido %>/detalle" class="btn btn-sm btn-primary">Ver</a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

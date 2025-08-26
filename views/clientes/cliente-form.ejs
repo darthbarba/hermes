@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= editar ? 'Editar Cliente' : 'Crear Cliente' %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card-custom {
+      max-width: 28rem;
+      width: 100%;
+      border-radius: 1.25rem;
+      border: 1px solid #bfdbfe;
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -4px rgba(59, 130, 246, 0.1);
+      padding: 2rem;
+      background-color: white;
+    }
+    .text-azul-700 { color: #1e40af; }
+  </style>
+</head>
+<body>
+
+  <div class="card card-custom">
+    <h2 class="text-center text-azul-700 fw-bold mb-4">
+      <%= editar ? 'Editar Cliente' : 'Crear Cliente' %>
+    </h2>
+
+    <form action="<%= editar ? '/api/clientes/' + cliente.id_cliente : '/api/clientes' %>" method="POST">
+      <% if (editar) { %>
+        <input type="hidden" name="_method" value="PUT" />
+      <% } %>
+
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required value="<%= cliente?.nombre || '' %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="dni" class="form-label">DNI</label>
+        <input type="text" class="form-control" id="dni" name="dni" value="<%= cliente?.dni || '' %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="instagram" class="form-label">Instagram</label>
+        <input type="text" class="form-control" id="instagram" name="instagram" value="<%= cliente?.instagram || '' %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" value="<%= cliente?.telefono || '' %>">
+      </div>
+
+
+      <button type="submit" class="btn btn-primary w-100 rounded-pill">
+        <%= editar ? 'Actualizar Cliente' : 'Guardar Cliente' %>
+      </button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #eff6ff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      max-width: 24rem;
+      width: 100%;
+      background: white;
+      padding: 2.5rem 2.5rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -4px rgba(59, 130, 246, 0.1);
+    }
+    .text-azul-700 { color: #1e40af; }
+    .text-azul-800 { color: #1e3a8a; }
+    .form-control {
+      border-color: #93c5fd;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    .form-control:focus {
+      box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.5);
+      border-color: #3b82f6;
+    }
+    .btn-azul {
+      background-color: #2563eb;
+      color: white;
+      border-radius: 1.25rem;
+      padding: 0.5rem 0;
+      transition: background-color 0.3s ease;
+    }
+    .btn-azul:hover {
+      background-color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="d-flex justify-content-center mb-4">
+      <img src="/logo.png" alt="Logo" class="w-20 h-20" style="width: 5rem; height: 5rem;" />
+    </div>
+    <h2 class="text-center text-azul-700 fw-bold mb-4">Iniciar Sesión</h2>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <form method="POST" action="/login">
+      <div class="mb-3">
+        <label for="email" class="form-label text-azul-800 fw-medium">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" name="email" required />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label text-azul-800 fw-medium">Contraseña</label>
+        <input type="password" class="form-control" id="password" name="password" required />
+      </div>
+      <button type="submit" class="btn btn-azul w-100">Ingresar</button>
+    </form>
+  </div>
+
+</body>
+</html>

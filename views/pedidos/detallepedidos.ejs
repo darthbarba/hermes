@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalle del Pedido</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #eff6ff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card-custom {
+      max-width: 40rem;
+      width: 100%;
+      border-radius: 1.25rem;
+      border: 1px solid #bfdbfe;
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -4px rgba(59, 130, 246, 0.1);
+      padding: 2rem;
+    }
+    .text-azul-700 {
+      color: #1e40af;
+    }
+    .text-azul-900 {
+      color: #1e3a8a;
+      font-size: 1.0625rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card card-custom">
+    <div class="d-flex justify-content-center mb-4">
+      <img src="logo.png.jpg" alt="Logo" style="width: 4rem; height: 4rem;" />
+    </div>
+
+    <h2 class="text-center text-azul-700 fw-bold mb-4">Detalle del Pedido</h2>
+
+    <div class="text-azul-900 mb-4" style="font-size: 17px; line-height: 1.5;">
+      <p><strong>Cliente:</strong> Bárbara Laddaga</p>
+      <p><strong>DNI:</strong> 000000000</p>
+      <p><strong>Instagram:</strong> @barbara</p>
+      <p><strong>Teléfono:</strong> 22814912326</p>
+      <p><strong>Servicio:</strong> Comisión</p>
+      <p><strong>Costo del servicio:</strong> $80.500</p>
+      <div>
+        <strong>Direcciones:</strong>
+        <ul class="list-unstyled ms-3 mt-2" style="list-style-type: disc;">
+          <li><strong>Retiro de dinero:</strong> Ibarzabal 1039</li>
+          <li><strong>Entrega:</strong> Calle falsa 123</li>
+        </ul>
+      </div>
+      <p><strong>¿Lleva dinero?:</strong> Sí</p>
+      <p><strong>Monto a llevar:</strong> $15.000</p>
+    </div>
+
+    <div class="d-flex justify-content-center pt-3">
+      <button onclick="window.print()" class="btn btn-primary rounded-pill px-4 d-flex align-items-center gap-2 shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="mb-1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18h12v4H6v-4zM6 14h12v4H6v-4zM6 10h12v4H6v-4z" />
+        </svg>
+        Imprimir
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
